@@ -81,7 +81,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PCI.cpp" />
+    <ClCompile Include="PlytaGamingowa.cpp" />
+    <ClCompile Include="PlytaGlowna.cpp" />
+    <ClCompile Include="PlytaMobilna.cpp" />
+    <ClCompile Include="PlytaStacjonarna.cpp" />
     <ClCompile Include="QtOknoGlowne.cpp" />
+    <ClCompile Include="Soket.cpp" />
+    <ClCompile Include="SzynaPamieci.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtOknoGlowne.h">
@@ -109,6 +116,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_QtOknoGlowne.h" />
+    <ClInclude Include="PCI.h" />
+    <ClInclude Include="PlytaGamingowa.h" />
+    <ClInclude Include="PlytaGlowna.h" />
+    <ClInclude Include="PlytaMobilna.h" />
+    <ClInclude Include="PlytaStacjonarna.h" />
+    <ClInclude Include="Soket.h" />
+    <ClInclude Include="SzynaPamieci.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtOknoGlowne.qrc">

@@ -55,6 +55,27 @@
     <ClCompile Include="GeneratedFiles\qrc_QtOknoGlowne.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="PCI.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlytaGamingowa.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlytaGlowna.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlytaMobilna.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlytaStacjonarna.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Soket.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SzynaPamieci.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtOknoGlowne.h">
@@ -70,6 +91,27 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_QtOknoGlowne.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PCI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlytaGamingowa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlytaGlowna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlytaMobilna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlytaStacjonarna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Soket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SzynaPamieci.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
