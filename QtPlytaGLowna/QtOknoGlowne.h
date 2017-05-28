@@ -7,6 +7,7 @@
 #include "PlytaStacjonarna.h"
 #include "PlytaMobilna.h"
 #include "PlytaGamingowa.h"
+#include <QStringListModel>
 
 extern QTextStream cout;
 
@@ -17,8 +18,14 @@ class QtOknoGlowne : public QMainWindow
 public:
 	QtOknoGlowne(QWidget *parent = Q_NULLPTR);
 
+public slots:
+	void dodajPlyte();
+	void usunPlyte();
+
 private:
 	Ui::QtOknoGlowneClass ui;
+	vector<PlytaGlowna*> plyty;
+	QStringListModel *listaPlyt;
 	
 
 };

@@ -13,11 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,24 +26,32 @@ QT_BEGIN_NAMESPACE
 class Ui_QtOknoGlowneClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
+    QListView *listaPlyt;
+    QPushButton *nowaPlyta;
+    QPushButton *usunPlyte;
+    QComboBox *comboBox;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *QtOknoGlowneClass)
     {
         if (QtOknoGlowneClass->objectName().isEmpty())
             QtOknoGlowneClass->setObjectName(QStringLiteral("QtOknoGlowneClass"));
-        QtOknoGlowneClass->resize(600, 400);
-        menuBar = new QMenuBar(QtOknoGlowneClass);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        QtOknoGlowneClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(QtOknoGlowneClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        QtOknoGlowneClass->addToolBar(mainToolBar);
+        QtOknoGlowneClass->resize(560, 359);
         centralWidget = new QWidget(QtOknoGlowneClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        listaPlyt = new QListView(centralWidget);
+        listaPlyt->setObjectName(QStringLiteral("listaPlyt"));
+        listaPlyt->setGeometry(QRect(40, 50, 256, 241));
+        nowaPlyta = new QPushButton(centralWidget);
+        nowaPlyta->setObjectName(QStringLiteral("nowaPlyta"));
+        nowaPlyta->setGeometry(QRect(370, 60, 111, 51));
+        usunPlyte = new QPushButton(centralWidget);
+        usunPlyte->setObjectName(QStringLiteral("usunPlyte"));
+        usunPlyte->setGeometry(QRect(370, 230, 111, 51));
+        comboBox = new QComboBox(centralWidget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox->setGeometry(QRect(350, 160, 141, 21));
         QtOknoGlowneClass->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(QtOknoGlowneClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -56,6 +65,8 @@ public:
     void retranslateUi(QMainWindow *QtOknoGlowneClass)
     {
         QtOknoGlowneClass->setWindowTitle(QApplication::translate("QtOknoGlowneClass", "QtOknoGlowne", Q_NULLPTR));
+        nowaPlyta->setText(QApplication::translate("QtOknoGlowneClass", "PushButton", Q_NULLPTR));
+        usunPlyte->setText(QApplication::translate("QtOknoGlowneClass", "PushButton", Q_NULLPTR));
     } // retranslateUi
 
 };

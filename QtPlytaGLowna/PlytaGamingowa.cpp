@@ -1,9 +1,10 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "PlytaGamingowa.h"
 
 
 PlytaGamingowa::PlytaGamingowa()
 {
+	nazwa = "Plyta Gamingowa";
 	podswietlenieRGB = "Krwisto czerwony";
 	cechySzczegolne = "Drapiezny wyglad";
 	material = "Czysty stop aluminium";

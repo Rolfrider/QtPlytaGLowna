@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "PlytaStacjonarna.h"
 
 #ifdef _DEBUG
@@ -13,6 +13,7 @@ PlytaStacjonarna::PlytaStacjonarna()
 {
 	DEBUG("Tworze plyte glowna")
 
+	nazwa = "Plyta Stacjonarna";
 	szerokosc = 305;
 	dlugosc = 244;
 	waga = 222.1;
@@ -47,6 +48,7 @@ PlytaStacjonarna::PlytaStacjonarna(int liczbaSzyn, int szynyZajete, int wejsciaP
 	szerokosc = 305;
 	dlugosc = 244;
 	waga = 222.1;
+	nazwa = "Plyta Stacjonarna";
 	marka = losuj();
 	liczbaPlyt++;
 	RAM.reserve(liczbaSzyn);// Rezerwuje nam miejsce na max tyle elementów ile jest szyn
@@ -73,6 +75,7 @@ PlytaStacjonarna::PlytaStacjonarna(int liczbaSzyn, int szynyZajete, int wejsciaP
 PlytaStacjonarna::PlytaStacjonarna(PlytaStacjonarna &p) { // konstruktor kopiuj¹cy 
 	DEBUG("Tworze plyte glowna")
 	liczbaPlyt++;
+	nazwa = "Plyta Stacjonarna";
 	marka = p.marka;
 	liczbaSzyn = p.liczbaSzyn;
 	wejsciaPCI = p.wejsciaPCI;

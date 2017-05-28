@@ -8,6 +8,7 @@ using namespace std;
 class PlytaGlowna
 {
 protected:
+	string nazwa;
 	float szerokosc; ///< Okresla szerokosc kazdej plyty
 	float dlugosc; ///< Okresla dlugosc kazdej plyty
 	float waga; ///< Okresla wage kazdej plyty
@@ -27,6 +28,8 @@ public:
 	virtual void wpiszDoPliku() = 0;
 	/// Funkcja abstrakcyjna i wirtualna wczytujaca dane obiektu z pliku
 	virtual void wczytajZPliku() = 0;
+
+	virtual string zwrocNazwe() { return nazwa; }
 	/// operator strumieniowy << wypisujacy informacje o obiekcie do strumienia wyjsciowego
 	friend ostream& operator<< (ostream &s, PlytaGlowna &p);
 	/// operator strumieniowy >> wypisujacy informacje o obiekcie do strumienia wejsciowego

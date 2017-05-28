@@ -1,9 +1,10 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "PlytaMobilna.h"
 
 
 PlytaMobilna::PlytaMobilna()
 {
+	nazwa = "Plyta Mobilna";
 	szerokosc = 10.3;
 	dlugosc = 4.8;
 	waga = 20;
