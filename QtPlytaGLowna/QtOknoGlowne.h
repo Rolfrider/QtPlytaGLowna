@@ -2,12 +2,13 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QTextStream>
+#include <QStringListModel>
+#include <QAbstractItemView>
 #include "ui_QtOknoGlowne.h"
 #include "PlytaGlowna.h"
 #include "PlytaStacjonarna.h"
 #include "PlytaMobilna.h"
 #include "PlytaGamingowa.h"
-#include <QStringListModel>
 
 extern QTextStream cout;
 
@@ -25,7 +26,10 @@ public slots:
 private:
 	Ui::QtOknoGlowneClass ui;
 	vector<PlytaGlowna*> plyty;
-	QStringListModel *listaPlyt;
+	QStringListModel *modelPlyt;
+	QStringListModel *listaOpcji;
+	QStringList *lista;
+
 	
 
 };

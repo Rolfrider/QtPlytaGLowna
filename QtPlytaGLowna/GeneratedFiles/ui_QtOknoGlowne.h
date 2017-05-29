@@ -27,9 +27,9 @@ class Ui_QtOknoGlowneClass
 {
 public:
     QWidget *centralWidget;
-    QListView *listaPlyt;
-    QPushButton *nowaPlyta;
-    QPushButton *usunPlyte;
+    QListView *listView;
+    QPushButton *nowaPlytaButton;
+    QPushButton *usunPlyteButton;
     QComboBox *comboBox;
     QStatusBar *statusBar;
 
@@ -40,15 +40,15 @@ public:
         QtOknoGlowneClass->resize(560, 359);
         centralWidget = new QWidget(QtOknoGlowneClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        listaPlyt = new QListView(centralWidget);
-        listaPlyt->setObjectName(QStringLiteral("listaPlyt"));
-        listaPlyt->setGeometry(QRect(40, 50, 256, 241));
-        nowaPlyta = new QPushButton(centralWidget);
-        nowaPlyta->setObjectName(QStringLiteral("nowaPlyta"));
-        nowaPlyta->setGeometry(QRect(370, 60, 111, 51));
-        usunPlyte = new QPushButton(centralWidget);
-        usunPlyte->setObjectName(QStringLiteral("usunPlyte"));
-        usunPlyte->setGeometry(QRect(370, 230, 111, 51));
+        listView = new QListView(centralWidget);
+        listView->setObjectName(QStringLiteral("listView"));
+        listView->setGeometry(QRect(40, 50, 256, 241));
+        nowaPlytaButton = new QPushButton(centralWidget);
+        nowaPlytaButton->setObjectName(QStringLiteral("nowaPlytaButton"));
+        nowaPlytaButton->setGeometry(QRect(370, 60, 111, 51));
+        usunPlyteButton = new QPushButton(centralWidget);
+        usunPlyteButton->setObjectName(QStringLiteral("usunPlyteButton"));
+        usunPlyteButton->setGeometry(QRect(370, 230, 111, 51));
         comboBox = new QComboBox(centralWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setGeometry(QRect(350, 160, 141, 21));
@@ -58,6 +58,8 @@ public:
         QtOknoGlowneClass->setStatusBar(statusBar);
 
         retranslateUi(QtOknoGlowneClass);
+        QObject::connect(nowaPlytaButton, SIGNAL(clicked()), QtOknoGlowneClass, SLOT(dodajPlyte()));
+        QObject::connect(usunPlyteButton, SIGNAL(clicked()), QtOknoGlowneClass, SLOT(usunPlyte()));
 
         QMetaObject::connectSlotsByName(QtOknoGlowneClass);
     } // setupUi
@@ -65,8 +67,8 @@ public:
     void retranslateUi(QMainWindow *QtOknoGlowneClass)
     {
         QtOknoGlowneClass->setWindowTitle(QApplication::translate("QtOknoGlowneClass", "QtOknoGlowne", Q_NULLPTR));
-        nowaPlyta->setText(QApplication::translate("QtOknoGlowneClass", "PushButton", Q_NULLPTR));
-        usunPlyte->setText(QApplication::translate("QtOknoGlowneClass", "PushButton", Q_NULLPTR));
+        nowaPlytaButton->setText(QApplication::translate("QtOknoGlowneClass", "Dodaj P\305\202yt\304\231", Q_NULLPTR));
+        usunPlyteButton->setText(QApplication::translate("QtOknoGlowneClass", "Usu\305\204 P\305\202yt\304\231", Q_NULLPTR));
     } // retranslateUi
 
 };

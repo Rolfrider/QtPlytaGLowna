@@ -14,7 +14,7 @@
    <string>QtOknoGlowne</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListView" name="listaPlyt">
+   <widget class="QListView" name="listView">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="nowaPlyta">
+   <widget class="QPushButton" name="nowaPlytaButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -34,10 +34,10 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Dodaj Płytę</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="usunPlyte">
+   <widget class="QPushButton" name="usunPlyteButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -47,7 +47,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Usuń Płytę</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBox">
@@ -67,5 +67,42 @@
  <resources>
   <include location="QtOknoGlowne.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>nowaPlytaButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtOknoGlowneClass</receiver>
+   <slot>dodajPlyte()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>425</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>usunPlyteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtOknoGlowneClass</receiver>
+   <slot>usunPlyte()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>425</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>dodajPlyte()</slot>
+  <slot>usunPlyte()</slot>
+ </slots>
 </ui>
