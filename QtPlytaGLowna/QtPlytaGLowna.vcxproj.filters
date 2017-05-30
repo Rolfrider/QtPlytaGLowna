@@ -76,6 +76,15 @@
     <ClCompile Include="PCI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtOknoSzczegolowe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QtOknoSzczegolowe.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QtOknoSzczegolowe.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtOknoGlowne.h">
@@ -87,11 +96,14 @@
     <CustomBuild Include="QtOknoGlowne.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="QtOknoSzczegolowe.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="QtOknoSzczegolowe.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_QtOknoGlowne.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="PCI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -113,5 +125,11 @@
     <ClInclude Include="SzynaPamieci.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_QtOknoSzczegolowe.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

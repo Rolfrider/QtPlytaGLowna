@@ -9,8 +9,9 @@
 #include "PlytaStacjonarna.h"
 #include "PlytaMobilna.h"
 #include "PlytaGamingowa.h"
+#include "QtOknoSzczegolowe.h"
 
-extern QTextStream cout;
+
 
 class QtOknoGlowne : public QMainWindow
 {
@@ -22,6 +23,7 @@ public:
 public slots:
 	void dodajPlyte();
 	void usunPlyte();
+	void pokazSzczegoly();
 
 private:
 	Ui::QtOknoGlowneClass ui;

@@ -21,8 +21,7 @@ QtOknoGlowne::QtOknoGlowne(QWidget *parent)
 	ui.comboBox->setModel(listaOpcji);
 
 	ui.listView->
-		setEditTriggers(QAbstractItemView::AnyKeyPressed |
-			QAbstractItemView::DoubleClicked);
+		setEditTriggers(QAbstractItemView::AnyKeyPressed);
 	
 }
 
@@ -61,17 +60,24 @@ void QtOknoGlowne::usunPlyte()
 {
 	int index = ui.listView->currentIndex().row();
 	
-	if (index!= NULL) {
+	if (index>=0) {
 		int i;
 		if (index == 0)
 			i = index;
 		else
 			i = index - 1;
-		if (!plyty.empty()&& i >=0 && i<plyty.size()) {// tu dodane warunki
+		if (!plyty.empty()) {
 			plyty.erase(plyty.begin() + i);
 			lista->erase(lista->begin() + i);
 		}
 		modelPlyt->removeRows(index, 1);
 	}
 
+}
+
+void QtOknoGlowne::pokazSzczegoly()
+{
+	QtOknoSzczegolowe *okno = new QtOknoSzczegolowe();
+	okno->exec();
+	
 }
