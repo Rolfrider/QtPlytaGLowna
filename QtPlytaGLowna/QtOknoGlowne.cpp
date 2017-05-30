@@ -67,7 +67,7 @@ void QtOknoGlowne::usunPlyte()
 			i = index;
 		else
 			i = index - 1;
-		if (!plyty.empty()) {
+		if (!plyty.empty()&& i >=0 && i<plyty.size()) {// tu dodane warunki
 			plyty.erase(plyty.begin() + i);
 			lista->erase(lista->begin() + i);
 		}
