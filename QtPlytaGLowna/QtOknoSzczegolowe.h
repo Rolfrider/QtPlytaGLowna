@@ -1,13 +1,24 @@
 #pragma once
 
 #include <QtWidgets/QDialog>
+#include <QFile>
+#include <QString>
+#include <QTextStream>
 #include "ui_QtOknoSzczegolowe.h"
+#include "PlytaGlowna.h"
 
 class QtOknoSzczegolowe: public QDialog, public Ui::Dialog
 {
 	Q_OBJECT
 public:
-	QtOknoSzczegolowe(QWidget *parent = Q_NULLPTR);
-	
+	QtOknoSzczegolowe(PlytaGlowna* plyta, QWidget *parent = Q_NULLPTR);
+
+
+
+private:
+	PlytaGlowna * plyta;
+	void pobierzDane();
+	void wyswietlDane(QList<QString> dane, int ile);
+	QList<QLineEdit*> polaDanych;
 };
 

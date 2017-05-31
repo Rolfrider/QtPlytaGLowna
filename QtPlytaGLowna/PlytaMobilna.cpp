@@ -1,5 +1,6 @@
 //#include "stdafx.h"
 #include "PlytaMobilna.h"
+#define MOBILNA "PlytaMobilna.txt"
 
 
 PlytaMobilna::PlytaMobilna()
@@ -20,17 +21,15 @@ PlytaMobilna::PlytaMobilna()
 
 ostream& operator << (ostream &s, PlytaMobilna &p)
 {
-	cout << "Plyta Mobilna" << endl;
-	cout << "Producent plyty mobilnej : "; s << p.marka << endl;
-	cout << "Szerokosc w mm : "; s << p.szerokosc << endl;
-	cout << "Dlugosc w mm "; s << p.dlugosc << endl;
-	cout << "Waga : "; s << p.waga; cout << " gram"; s << endl;
+	 s << p.marka << endl;
+	 s << p.szerokosc << endl;
+	 s << p.dlugosc << endl;
+	s << p.waga << endl;
 	s << p.procesor << endl;
 	s << p.ram << endl;
-	cout << "Dodatkowe urzadzenia : " << endl;
+	
 	for (int i = 0; i < p.dodatki.size(); i++)
 	{
-		cout << "==============================================================" << endl;
 		s << p.dodatki[i] << endl;
 		
 	}
@@ -68,35 +67,28 @@ void PlytaMobilna::stan() {
 
 void PlytaMobilna::wpiszDoPliku() {
 	fstream plik;
-	plik.open("PlytaMobilna.txt", ios::in);
+	plik.open(MOBILNA, ios::out | ios::trunc);
 	if (plik.good() == true)
 	{
 
 		plik << *this;
 		plik.close();
-		system("cls");
-		cout << "Udalo sie zapisac dane w pliku " << endl;
+		
 	}
-	else
-	{
-		cout << "Nie udalo sie otworzyc pliku" << endl;
-	}
+	
 }
 
 void PlytaMobilna::wczytajZPliku() {
 	fstream plik;
-	plik.open("PlytaMobilna.txt", ios::out);
+	plik.open(MOBILNA, ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;
 		plik.close();
 		system("cls");
-		cout << "Udalo sie wczytac dane z pliku" << endl;
+		
 	}
-	else
-	{
-		cout << "Nie mozna otworzyc pliku" << endl;
-	}
+	
 }
 
 PlytaMobilna::~PlytaMobilna()

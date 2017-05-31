@@ -42,7 +42,7 @@ public:
     {
         if (QtOknoGlowneClass->objectName().isEmpty())
             QtOknoGlowneClass->setObjectName(QStringLiteral("QtOknoGlowneClass"));
-        QtOknoGlowneClass->resize(560, 359);
+        QtOknoGlowneClass->resize(560, 375);
         centralWidget = new QWidget(QtOknoGlowneClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         QPalette palette;
@@ -59,6 +59,7 @@ public:
         listView->setMidLineWidth(0);
         listView->setEditTriggers(QAbstractItemView::EditKeyPressed);
         listView->setTabKeyNavigation(true);
+        listView->setAlternatingRowColors(true);
         listView->setSpacing(5);
         nowaPlytaButton = new QPushButton(centralWidget);
         nowaPlytaButton->setObjectName(QStringLiteral("nowaPlytaButton"));

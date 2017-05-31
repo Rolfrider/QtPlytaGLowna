@@ -154,7 +154,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <CustomBuild Include="QtOknoSzczegolowe.ui">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>

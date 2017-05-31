@@ -27,16 +27,7 @@ QtOknoGlowne::QtOknoGlowne(QWidget *parent)
 
 void QtOknoGlowne::dodajPlyte()
 {
-
-	/*int wiersz = listaUtworzonychPlyt->rowCount();
-
-	listaUtworzonychPlyt->insertRows(wiersz, 1);
-
-	QModelIndex index = listaUtworzonychPlyt->index(wiersz);
-
-	ui.listaPlyt->setCurrentIndex(index);
-	ui.listaPlyt->edit(index);*/
-
+	
 	QString plyta = ui.comboBox->currentText();
 	if(plyta== "Plyta Stacjonarna")
 		plyty.push_back(new PlytaStacjonarna());
@@ -44,11 +35,11 @@ void QtOknoGlowne::dodajPlyte()
 		plyty.push_back(new PlytaMobilna());
 	else
 		plyty.push_back(new PlytaGamingowa());
-
-	//if(lista->size() == 0){
+	
 	lista->append(plyta);
 	modelPlyt->setStringList(*lista);
 	ui.listView->setModel(modelPlyt);
+	
 	
 	
 
@@ -77,7 +68,15 @@ void QtOknoGlowne::usunPlyte()
 
 void QtOknoGlowne::pokazSzczegoly()
 {
-	QtOknoSzczegolowe *okno = new QtOknoSzczegolowe();
-	okno->exec();
+	int index = ui.listView->currentIndex().row();
+
+	
+	if (!plyty.empty()&& index >= 0) {
+		QtOknoSzczegolowe *okno = new QtOknoSzczegolowe(plyty[index]);
+		okno->exec();
+	}
+		
+
+	
 	
 }

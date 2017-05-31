@@ -41,18 +41,17 @@ PlytaGamingowa::PlytaGamingowa()
 
 
 ostream& operator << (ostream &s, PlytaGamingowa &p) {
-	cout << "Plyta Gamingowa :" << endl;
-	cout << "Producent : "; s << p.marka << endl;
-	cout << "Szerokosc w mm : "; s << p.szerokosc << endl;
-	cout << "Dlugosc w mm "; s << p.dlugosc << endl;
-	cout << "Waga : "; s << p.waga; cout << " gram"; s << endl;
-	cout << "Dostepne szyny pamieci: "; s << p.liczbaSzyn << endl;;
-	cout << " Zajete szyny pamieci : "; s << p.szynyZajete << endl;
-	cout << "Dostepne zlacza PCI: "; s << p.wejsciaPCI << endl;
-	cout << " Zajete zlacza PCI: "; s << p.PCIzajete << endl;
-	cout << "Kolor podswietlenia RGB : "; s << p.podswietlenieRGB << endl;
-	cout << "Cechy szczegolne : "; s << p.cechySzczegolne << endl;
-	cout << "Material z ktorego zostala wykonana plyta : "; s << p.material << endl;
+	 s << p.marka << endl;
+	 s << p.szerokosc << endl;
+	 s << p.dlugosc << endl;
+	 s << p.waga << endl;
+	 s << p.liczbaSzyn << endl;;
+	 s << p.szynyZajete << endl;
+	 s << p.wejsciaPCI << endl;
+	 s << p.PCIzajete << endl;
+	 s << p.podswietlenieRGB << endl;
+	 s << p.cechySzczegolne << endl;
+	 s << p.material << endl;
 	p.dzialka();
 	s << p.procesor;
 	for (int i = 0; i < p.karty.size(); i++) {

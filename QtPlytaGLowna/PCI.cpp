@@ -32,12 +32,12 @@ PCI::PCI(string rodzaj, string producent, int pamienc, bool mobilna)
 //operatory
 ostream& operator<<(ostream &o, PCI &p) {
 	o << p.rodzaj << endl;
-	cout << "Producent : "; o << p.producent << endl;
+	 o << p.producent << endl;
 	if (p.mobilna == true) {
-		cout << "Pamiec urzadzenia "; o << p.pamienc; cout << "MB"; o << endl;
+		 o << p.pamienc << endl;
 	}
 	else {
-		cout << "Pamiec urzadzenia "; o << p.pamienc; cout << " GB"; o << endl;
+		 o << p.pamienc  << endl;
 	}
 	return o;
 }

@@ -42,14 +42,12 @@ Soket::Soket(Soket &s) {
 }
 // OPERATORY
 ostream& operator<<(ostream &o, Soket &s) {
-	cout << "Dane procesora:" << endl;
-	cout << "Liczba Rdzeni : "; o << s.liczbaRdzeni << endl;
-	cout << "Taktowanie Kazdego Rdzeniea : "; o << s.taktowanie; cout << " GHz"; o << endl;
-	cout << "Gniazdo Procesora : "; o << s.rodzaj << endl;
-	cout << "Pamiec Cache : "; o << s.pamiecCache; cout << " MB"; o << endl;
+	o << s.liczbaRdzeni << endl;
+	 o << s.taktowanie << endl;
+	 o << s.rodzaj << endl;
+	o << s.pamiecCache << endl;
 	if (s.zintegrowanaKartaGraficzna != nullptr)
 	{
-		cout << "Zintegrowana karta graficzna" << endl;
 		o << *s.zintegrowanaKartaGraficzna << endl;
 	}
 	return o;
