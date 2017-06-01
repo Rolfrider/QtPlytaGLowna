@@ -42,9 +42,11 @@ Soket::Soket(Soket &s) {
 }
 // OPERATORY
 ostream& operator<<(ostream &o, Soket &s) {
-	o << s.liczbaRdzeni << endl;
-	 o << s.taktowanie << endl;
+	
+	
 	 o << s.rodzaj << endl;
+	 o << s.liczbaRdzeni << endl;
+	 o << s.taktowanie << endl;
 	o << s.pamiecCache << endl;
 	if (s.zintegrowanaKartaGraficzna != nullptr)
 	{

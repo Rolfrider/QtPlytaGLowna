@@ -1,36 +1,24 @@
- MSC 
+ MidBajt 
 305
 244
 222.1
-6
-5
+1
+1
 3
 3
+2011
 4
 3.5
-2011
 6
- Karta dzwiekowa 
+ Karta graficzna 
 Minibajt
-3
- Karta graficzna 
+4
+ Karta dzwiekowa 
 Masus
-4
- Karta graficzna 
+2
+ Karta sieciowa 
 Turbo
-4
+3
 RASUS
 2133
-4
-RASUS
-1866
-8
-RASUS
-2400
-16
-RASUS
-2400
-8
-RASUS
-1866
 8

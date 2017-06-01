@@ -52,14 +52,9 @@ void QtOknoGlowne::usunPlyte()
 	int index = ui.listView->currentIndex().row();
 	
 	if (index>=0) {
-		int i;
-		if (index == 0)
-			i = index;
-		else
-			i = index - 1;
 		if (!plyty.empty()) {
-			plyty.erase(plyty.begin() + i);
-			lista->erase(lista->begin() + i);
+			plyty.erase(plyty.begin() + index);
+			lista->erase(lista->begin() + index);
 		}
 		modelPlyt->removeRows(index, 1);
 	}

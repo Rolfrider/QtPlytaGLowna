@@ -17,8 +17,12 @@ public:
 
 private:
 	PlytaGlowna * plyta;
+	QGraphicsScene* scena;
+	QPixmap* obraz;
 	void pobierzDane();
-	void wyswietlDane(QList<QString> dane, int ile);
+	void wyswietlDane(QList<QString> dane, int ile, QList<QLineEdit*> polaNaDane);
 	QList<QLineEdit*> polaDanych;
+	QList<QLineEdit*> polaDanychProc;
+	QStringList czytajDane(QTextStream &in, int start, int koniec);
 };
 
