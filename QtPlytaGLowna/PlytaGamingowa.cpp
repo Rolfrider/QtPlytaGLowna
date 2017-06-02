@@ -52,17 +52,14 @@ ostream& operator << (ostream &s, PlytaGamingowa &p) {
 	 s << p.podswietlenieRGB << endl;
 	 s << p.cechySzczegolne << endl;
 	 s << p.material << endl;
-	p.dzialka();
 	s << p.procesor;
-	for (int i = 0; i < p.karty.size(); i++) {
-		p.dzialka();
-		s << p.karty[i];
-	}
 	for (int i = 0; i < p.RAM.size(); i++) {
-		p.dzialka();
 		s << p.RAM[i];
 	}
-	p.dzialka();
+	for (int i = 0; i < p.karty.size(); i++) {
+		
+		s << p.karty[i];
+	}
 	return s;
 }
 
@@ -92,13 +89,14 @@ istream& operator >> (istream &o, PlytaGamingowa &p) {
 	getline(o, p.material);
 	o >> p.procesor;
 	
-	for (int i = 0; i < p.karty.size(); i++) {
-		p.dzialka();
-		o >> p.karty[i];
-	}
+	
 	for (int i = 0; i < p.RAM.size(); i++) {
 		p.dzialka();
 		o >> p.RAM[i];
+	}
+	for (int i = 0; i < p.karty.size(); i++) {
+		p.dzialka();
+		o >> p.karty[i];
 	}
 	return o;
 }

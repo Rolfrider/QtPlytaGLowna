@@ -93,6 +93,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="usunPlyteButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -100,6 +103,18 @@
       <width>131</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Wymaga zaznaczenia obiektu</string>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="locale">
+     <locale language="Pashto" country="Afghanistan"/>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhNone</set>
     </property>
     <property name="text">
      <string>Usuń Płytę</string>
@@ -116,6 +131,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="szczegolyButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -124,8 +142,17 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>Wymaga zaznaczenia obiektu</string>
+    </property>
     <property name="text">
      <string>Wyświetl Sczegóły</string>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>300</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>101</number>
     </property>
    </widget>
    <widget class="QLabel" name="labelLista">
@@ -170,7 +197,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Zaznacz obiekt i zacznij wpisywać aby edytować jego nazwę</string>
+     <string>Zaznacz obiekt i zacznij wpisywać aby edytować jego nazwę. Kliknji dwa razy LPM , aby go zatwierdzić.</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -235,11 +262,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>listView</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QtOknoGlowneClass</receiver>
+   <slot>zmianaNazwy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>dodajPlyte()</slot>
   <slot>usunPlyte()</slot>
   <slot>pokazSzczegoly()</slot>
-  <slot>slot2()</slot>
+  <slot>zmianaNazwy()</slot>
  </slots>
 </ui>

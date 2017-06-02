@@ -13,6 +13,7 @@ QtOknoGlowne::QtOknoGlowne(QWidget *parent)
 	modelPlyt = new QStringListModel();
 	lista = new QStringList();
 
+
 	QStringList list;
 	list << "Plyta Stacjonarna" << "Plyta Mobilna" << "Plyta Gamingowa";
 
@@ -24,6 +25,15 @@ QtOknoGlowne::QtOknoGlowne(QWidget *parent)
 		setEditTriggers(QAbstractItemView::AnyKeyPressed);
 	
 }
+void QtOknoGlowne::zmianaNazwy()
+{
+	int index = ui.listView->currentIndex().row();
+	QString nazwa = modelPlyt->index(index).data().toString();
+	
+	lista->insert(lista->erase(lista->begin() + index), nazwa);
+
+}
+
 
 void QtOknoGlowne::dodajPlyte()
 {
@@ -40,7 +50,8 @@ void QtOknoGlowne::dodajPlyte()
 	modelPlyt->setStringList(*lista);
 	ui.listView->setModel(modelPlyt);
 	
-	
+	ui.usunPlyteButton->setEnabled(true);
+	ui.szczegolyButton->setEnabled(true);
 	
 
 
@@ -57,6 +68,11 @@ void QtOknoGlowne::usunPlyte()
 			lista->erase(lista->begin() + index);
 		}
 		modelPlyt->removeRows(index, 1);
+	}
+	if (plyty.empty())
+	{
+		ui.szczegolyButton->setEnabled(false);
+		ui.usunPlyteButton->setEnabled(false);
 	}
 
 }

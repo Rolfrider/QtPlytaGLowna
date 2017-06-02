@@ -22,23 +22,14 @@ Soket::Soket(int rodzaj, int liczbaRdzeni, float taktowanie, int pamiecCache, bo
 	this->liczbaRdzeni=liczbaRdzeni;
 	this->taktowanie=taktowanie;
 	this->pamiecCache=pamiecCache;
-	if (mobilna == true)
-	{
-		zintegrowanaKartaGraficzna = new PCI(mobilna);
-	}
+	
 }
 Soket::Soket(Soket &s) {
 	rodzaj = s.rodzaj;
 	liczbaRdzeni = s.liczbaRdzeni;
 	taktowanie = s.taktowanie;
 	pamiecCache = s.pamiecCache;
-	if (s.zintegrowanaKartaGraficzna != nullptr)
-	{
-		delete zintegrowanaKartaGraficzna;
-		zintegrowanaKartaGraficzna = new PCI(s.zintegrowanaKartaGraficzna);
-	}
-	else
-		zintegrowanaKartaGraficzna = nullptr;
+	
 }
 // OPERATORY
 ostream& operator<<(ostream &o, Soket &s) {
@@ -48,11 +39,8 @@ ostream& operator<<(ostream &o, Soket &s) {
 	 o << s.liczbaRdzeni << endl;
 	 o << s.taktowanie << endl;
 	o << s.pamiecCache << endl;
-	if (s.zintegrowanaKartaGraficzna != nullptr)
-	{
-		o << *s.zintegrowanaKartaGraficzna << endl;
-	}
 	return o;
+	
 }
 istream& operator >> (istream &o,Soket &p) {
 	
@@ -64,10 +52,7 @@ istream& operator >> (istream &o,Soket &p) {
 	o >> p.rodzaj;
 	cout << "Podaj liczbe MB pamieci Cache procesora" << endl;
 	o >> p.pamiecCache;
-	if (p.zintegrowanaKartaGraficzna != nullptr)
-	{
-		o >> *p.zintegrowanaKartaGraficzna;
-	}
+	
 	return o;
 }
 bool Soket::operator==(Soket &procesor) {
@@ -86,13 +71,7 @@ Soket& Soket::operator= (const Soket &s)
 	liczbaRdzeni = s.liczbaRdzeni;
 	taktowanie = s.taktowanie;
 	pamiecCache = s.pamiecCache;
-	if (s.zintegrowanaKartaGraficzna != nullptr)
-	{
-		delete zintegrowanaKartaGraficzna;
-		zintegrowanaKartaGraficzna = new PCI(s.zintegrowanaKartaGraficzna);
-	}
-	else
-		zintegrowanaKartaGraficzna = nullptr;
+	
 
 	return *this;
 }
@@ -122,8 +101,7 @@ void Soket::podkrecProcka() {
 Soket::~Soket()
 {
 	DEBUG("Niszcze procesor")
-	if (zintegrowanaKartaGraficzna != nullptr)
-		delete zintegrowanaKartaGraficzna;
+	
 
 	
 }

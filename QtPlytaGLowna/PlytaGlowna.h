@@ -29,6 +29,10 @@ public:
 	/// Funkcja abstrakcyjna i wirtualna wczytujaca dane obiektu z pliku
 	virtual void wczytajZPliku() = 0;
 
+	virtual int zwrocRam() = 0;
+
+	virtual int zwrocPci()= 0;
+
 	virtual string zwrocNazwe() { return nazwa; }
 	/// operator strumieniowy << wypisujacy informacje o obiekcie do strumienia wyjsciowego
 	friend ostream& operator<< (ostream &s, PlytaGlowna &p);

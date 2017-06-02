@@ -43,7 +43,7 @@ private:
 	int liczbaRdzeni;///< liczba rdzeni procesora
 	float taktowanie;///< wysokosc taktowania rdzeni
 	int pamiecCache;///< ilosc pamieci cache 
-	PCI* zintegrowanaKartaGraficzna = nullptr; ///< mozliwosc dodania zintegrowanej karty graficznej np. w procesorach mobilnych
+	
 
 
 };

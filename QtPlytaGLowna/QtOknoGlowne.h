@@ -24,6 +24,7 @@ public slots:
 	void dodajPlyte();
 	void usunPlyte();
 	void pokazSzczegoly();
+	void zmianaNazwy();
 
 private:
 	Ui::QtOknoGlowneClass ui;

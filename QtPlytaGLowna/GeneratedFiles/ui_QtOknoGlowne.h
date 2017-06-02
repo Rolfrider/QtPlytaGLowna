@@ -9,6 +9,7 @@
 #ifndef UI_QTOKNOGLOWNE_H
 #define UI_QTOKNOGLOWNE_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -66,13 +67,20 @@ public:
         nowaPlytaButton->setGeometry(QRect(10, 160, 120, 51));
         usunPlyteButton = new QPushButton(centralWidget);
         usunPlyteButton->setObjectName(QStringLiteral("usunPlyteButton"));
+        usunPlyteButton->setEnabled(false);
         usunPlyteButton->setGeometry(QRect(410, 210, 131, 51));
+        usunPlyteButton->setAutoFillBackground(false);
+        usunPlyteButton->setLocale(QLocale(QLocale::Pashto, QLocale::Afghanistan));
+        usunPlyteButton->setInputMethodHints(Qt::ImhNone);
         comboBox = new QComboBox(centralWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setGeometry(QRect(10, 130, 120, 21));
         szczegolyButton = new QPushButton(centralWidget);
         szczegolyButton->setObjectName(QStringLiteral("szczegolyButton"));
+        szczegolyButton->setEnabled(false);
         szczegolyButton->setGeometry(QRect(410, 70, 131, 51));
+        szczegolyButton->setAutoRepeatDelay(300);
+        szczegolyButton->setAutoRepeatInterval(101);
         labelLista = new QLabel(centralWidget);
         labelLista->setObjectName(QStringLiteral("labelLista"));
         labelLista->setGeometry(QRect(140, 20, 141, 16));
@@ -95,6 +103,7 @@ public:
         QObject::connect(nowaPlytaButton, SIGNAL(clicked()), QtOknoGlowneClass, SLOT(dodajPlyte()));
         QObject::connect(usunPlyteButton, SIGNAL(clicked()), QtOknoGlowneClass, SLOT(usunPlyte()));
         QObject::connect(szczegolyButton, SIGNAL(clicked()), QtOknoGlowneClass, SLOT(pokazSzczegoly()));
+        QObject::connect(listView, SIGNAL(doubleClicked(QModelIndex)), QtOknoGlowneClass, SLOT(zmianaNazwy()));
 
         QMetaObject::connectSlotsByName(QtOknoGlowneClass);
     } // setupUi
@@ -103,11 +112,17 @@ public:
     {
         QtOknoGlowneClass->setWindowTitle(QApplication::translate("QtOknoGlowneClass", "Aplikacj do zarz\304\205dzania obiektami", Q_NULLPTR));
         nowaPlytaButton->setText(QApplication::translate("QtOknoGlowneClass", "Dodaj P\305\202yt\304\231", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        usunPlyteButton->setToolTip(QApplication::translate("QtOknoGlowneClass", "Wymaga zaznaczenia obiektu", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         usunPlyteButton->setText(QApplication::translate("QtOknoGlowneClass", "Usu\305\204 P\305\202yt\304\231", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        szczegolyButton->setToolTip(QApplication::translate("QtOknoGlowneClass", "Wymaga zaznaczenia obiektu", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
         szczegolyButton->setText(QApplication::translate("QtOknoGlowneClass", "Wy\305\233wietl Sczeg\303\263\305\202y", Q_NULLPTR));
         labelLista->setText(QApplication::translate("QtOknoGlowneClass", "Lista stworzonych obiekt\303\263w:", Q_NULLPTR));
         label->setText(QApplication::translate("QtOknoGlowneClass", "Wybierz obiekt", Q_NULLPTR));
-        label_2->setText(QApplication::translate("QtOknoGlowneClass", "Zaznacz obiekt i zacznij wpisywa\304\207 aby edytowa\304\207 jego nazw\304\231", Q_NULLPTR));
+        label_2->setText(QApplication::translate("QtOknoGlowneClass", "Zaznacz obiekt i zacznij wpisywa\304\207 aby edytowa\304\207 jego nazw\304\231. Kliknji dwa razy LPM , aby go zatwierdzi\304\207.", Q_NULLPTR));
     } // retranslateUi
 
 };

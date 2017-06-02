@@ -45,6 +45,10 @@ public:
 	/// Funkcja odziedziczona wczytujaca  dane o obikecie z pliku
 	void wczytajZPliku();
 
+	int zwrocRam() { return liczbaSzyn; }
+
+
+	int zwrocPci(){return PCIzajete;}
 	/// operator strumieniowy << wypisujacy informacje o obiekcie do strumienia wyjsciowego
 	friend ostream& operator<< (ostream &s, PlytaStacjonarna &p);
 	/// operator strumieniowy >> wypisujacy informacje o obiekcie do strumienia wejsciowego

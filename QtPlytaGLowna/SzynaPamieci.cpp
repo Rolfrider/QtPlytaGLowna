@@ -35,7 +35,7 @@ SzynaPamieci::SzynaPamieci(bool mobilna) :
 ostream& operator<<(ostream &o, SzynaPamieci &s) {
 	 o << s.producent << endl;
 	 o << s.taktowanie << endl;
-	 o << s.pojemnosc; cout << " GB"; o << endl;
+	 o << s.pojemnosc  << endl;
 	return o;
 }
 istream& operator >> (istream &o, SzynaPamieci &p) {

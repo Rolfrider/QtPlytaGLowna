@@ -25,12 +25,12 @@ ostream& operator << (ostream &s, PlytaMobilna &p)
 	 s << p.szerokosc << endl;
 	 s << p.dlugosc << endl;
 	s << p.waga << endl;
-	s << p.procesor << endl;
-	s << p.ram << endl;
+	s << p.procesor;
+	s << p.ram;
 	
 	for (int i = 0; i < p.dodatki.size(); i++)
 	{
-		s << p.dodatki[i] << endl;
+		s << p.dodatki[i] ;
 		
 	}
 

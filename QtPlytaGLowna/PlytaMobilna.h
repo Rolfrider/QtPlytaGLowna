@@ -28,7 +28,8 @@ public:
 	friend ostream& operator<< (ostream &s, PlytaMobilna &p);
 	/// operator strumieniowy >> wypisujacy informacje o obiekcie do strumienia wejsciowego
 	friend istream& operator >> (istream &o, PlytaMobilna &p);
-
+	int zwrocPci() { return 4; }
+	int zwrocRam() { return 3; }
 	/// Funkcja odziedziczona wpisujaca dane o obikecie
 	void wypiszDane();
 	/// Funkcja odziedziczona wpisujaca stan obiektu

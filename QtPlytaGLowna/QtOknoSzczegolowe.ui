@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
-    <height>542</height>
+    <width>704</width>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Szczegóły płyty</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>510</y>
+     <x>340</x>
+     <y>530</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -33,17 +33,20 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
-     <width>311</width>
-     <height>311</height>
+     <y>20</y>
+     <width>351</width>
+     <height>351</height>
     </rect>
+   </property>
+   <property name="viewportUpdateMode">
+    <enum>QGraphicsView::MinimalViewportUpdate</enum>
    </property>
   </widget>
   <widget class="QGroupBox" name="PlytaBox">
    <property name="geometry">
     <rect>
-     <x>339</x>
-     <y>9</y>
+     <x>380</x>
+     <y>10</y>
      <width>301</width>
      <height>491</height>
     </rect>
@@ -60,6 +63,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="szerEdit">
     <property name="geometry">
@@ -69,6 +75,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dlEdit">
@@ -80,6 +89,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="wagaEdit">
     <property name="geometry">
@@ -89,6 +101,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dostSzynEdit">
@@ -100,6 +115,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="ZajSzynEdit">
     <property name="geometry">
@@ -109,6 +127,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dostPCIEdit">
@@ -120,6 +141,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="zajPCIEdit">
     <property name="geometry">
@@ -129,6 +153,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="rgbEdit">
@@ -140,6 +167,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="cechEdit">
     <property name="geometry">
@@ -150,6 +180,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="materialEdit">
     <property name="geometry">
@@ -159,6 +192,9 @@
       <width>181</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelProducent">
@@ -325,6 +361,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEditRdzenie">
      <property name="geometry">
@@ -334,6 +373,9 @@
        <width>113</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEditTak">
@@ -345,6 +387,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEditCache">
      <property name="geometry">
@@ -354,6 +399,9 @@
        <width>113</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="labelGniazdo">
@@ -413,19 +461,94 @@
   <widget class="QTabWidget" name="tabWidgetPCI">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>340</y>
+     <x>20</x>
+     <y>380</y>
      <width>151</width>
      <height>181</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
    <property name="currentIndex">
     <number>0</number>
    </property>
+   <property name="iconSize">
+    <size>
+     <width>12</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>PCI 1</string>
     </attribute>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>9</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="labelRodz">
+        <property name="text">
+         <string>Rodzaj rozszerzenia:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditRodz">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelProdu">
+        <property name="text">
+         <string>Producent:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditProdu">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelPami">
+        <property name="text">
+         <string>Pamięć(GB):</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEditPami">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -436,8 +559,8 @@
   <widget class="QGroupBox" name="groupBoxRAM">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>350</y>
+     <x>200</x>
+     <y>390</y>
      <width>151</width>
      <height>171</height>
     </rect>
@@ -454,6 +577,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditTakt">
     <property name="geometry">
@@ -464,6 +590,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditPam">
     <property name="geometry">
@@ -473,6 +602,9 @@
       <width>113</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelProd">
@@ -498,7 +630,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Taktowanie:</string>
+     <string>Taktowanie(MHz):</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelPam">
@@ -511,7 +643,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Pamięć:</string>
+     <string>Pamięć(GB):</string>
     </property>
    </widget>
   </widget>
@@ -550,5 +682,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tabWidgetPCI</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>Dialog</receiver>
+   <slot>zmianaTabu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>470</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>zmianaTabu()</slot>
+  <slot>slot2()</slot>
+ </slots>
 </ui>

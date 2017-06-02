@@ -3,9 +3,9 @@
 #define MOBILNA "PlytaMobilna.txt"
 #define GAMINGOWA "PlytaGamingowa.txt"
 
-#define STACJONARNA_OBRAZ "D:\\Resources\PlytaStacjonarna.jpg"
-#define MOBILNA_OBRAZ "\\Resources\PlytaMobilna.jpg"
-#define GAMINGOWA_OBRAZ "\\Resources\PlytaGamingowa.jpg"
+#define STACJONARNA_OBRAZ "Resources\\PlytaStacjonarna.jpg"
+#define MOBILNA_OBRAZ "Resources\\PlytaMobilna.png"
+#define GAMINGOWA_OBRAZ "Resources\\PlytaGamingowa.jpg"
 
 
 
@@ -15,9 +15,12 @@ QtOknoSzczegolowe::QtOknoSzczegolowe(PlytaGlowna* plyta, QWidget *parent)
 	this->plyta = plyta;
 	scena = new QGraphicsScene();
 	obraz = new QPixmap();
-	
 	polaDanych = PlytaBox->findChildren<QLineEdit*>();
 	polaDanychProc = groupBoxProc->findChildren<QLineEdit*>();
+	polaDanychRam = groupBoxRAM->findChildren<QLineEdit*>();
+	polaDanychPci = verticalLayoutWidget->findChildren<QLineEdit*>();
+	
+	tabWidgetPCI->removeTab(1);
 	pobierzDane();
 }
 
@@ -28,16 +31,52 @@ void QtOknoSzczegolowe::wyswietlDane(QList<QString> dane, int ile, QList<QLineEd
 	{
 		polaNaDane[i]->setText(dane[i]);
 	}
+	for (int i = ile; i < polaNaDane.size(); i++)
+		polaNaDane[i]->setText("Brak");
 }
+void QtOknoSzczegolowe::zmianaTabu()
+{
+	QWidget *wybrany = tabWidgetPCI->currentWidget();
+	int index = tabWidgetPCI->currentIndex();
 
+	wybrany->setLayout(verticalLayout);
+	int k = 0;
+	for (int i = index*3; i < index*3+3; i++) {
+		polaDanychPci[k]->setText(danePci[i]);
+		k++;
+	}
+
+
+}
+void QtOknoSzczegolowe::wyswietlDanePci(QList<QString> dane, QList<QLineEdit*> polaNaDane)
+{
+	
+	for (int i = 0; i < (dane.size()) / 3 - 1; i++)
+	{
+		
+		tabs.append(new QWidget);
+		tabs[i]->setObjectName(QStringLiteral("tab_%1").arg(i+2));
+		tabWidgetPCI->addTab(tabs[i], QString(QString("PCI %1").arg(i + 2)));
+
+	}
+
+	for (int i = 0; i < 3; i++) {
+		polaNaDane[i]->setText(dane[i]);
+	}
+}
 QStringList QtOknoSzczegolowe::czytajDane(QTextStream &in, int start, int koniec)
 {
 	QStringList dane;
-	for (int i = start; i < koniec; i++) {
-		QString wiersz = in.readLine();
-		dane.append(wiersz.split('\n'));
+	QString wiersz;
+	
+		for (int i = start; i < koniec; i++) {
+			wiersz = in.readLine();
+			dane.append(wiersz.split('\n'));
 
-	}
+		}
+		
+	
+
 	return dane;
 }
 
@@ -46,14 +85,18 @@ void QtOknoSzczegolowe::pobierzDane()
 {
 	plyta->wpiszDoPliku();
 	graphicsView->setScene(scena);
+	int ileRamu;
+	int ilePci;
+	int ilepol;
+	ileRamu = plyta->zwrocRam();
+	ilePci = plyta->zwrocPci();
 	if (plyta->zwrocNazwe() == "Plyta Stacjonarna")
 	{
 		if (obraz->load(STACJONARNA_OBRAZ))
 		{
 			scena->setSceneRect(obraz->rect());
-			scena->clear();
 			scena->addPixmap(*obraz);
-			graphicsView->fitInView(obraz->rect());
+			
 		}
 		QFile plik(STACJONARNA);
 		if (!plik.open(QFile::ReadOnly |
@@ -64,12 +107,16 @@ void QtOknoSzczegolowe::pobierzDane()
 		}
 		
 		QTextStream in(&plik);
-		int ilepol = 8;
+		ilepol = 8;
 		QStringList dane = czytajDane(in, 0, ilepol);
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
-	
-		wyswietlDane(dane,ilepol, polaDanych);
+		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
+		danePci = czytajDane(in, ilepol + 4 + ileRamu * 3, ilepol + 4 + ileRamu * 3 + ilePci * 3);
+		
+		wyswietlDane(daneRam, 3, polaDanychRam);
+		wyswietlDane(dane, ilepol, polaDanych);
 		wyswietlDane(daneProc, 4, polaDanychProc);
+		wyswietlDanePci(danePci, polaDanychPci);
 
 		plik.close();
 	}
@@ -78,9 +125,9 @@ void QtOknoSzczegolowe::pobierzDane()
 		if (obraz->load(MOBILNA_OBRAZ))
 		{
 			scena->setSceneRect(obraz->rect());
-			scena->clear();
+			
 			scena->addPixmap(*obraz);
-			graphicsView->fitInView(obraz->rect());
+			
 		}
 		QFile plik(MOBILNA);
 		if (!plik.open(QFile::ReadOnly |
@@ -91,12 +138,17 @@ void QtOknoSzczegolowe::pobierzDane()
 		
 		QTextStream in(&plik);
 	
-		int ilepol = 4;
+		ilepol = 4;
+		
 		QStringList dane = czytajDane(in, 0, ilepol);
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
+		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
+		 danePci = czytajDane(in, ilepol + 4 + ileRamu*3, ilepol + 4 + ileRamu * 3 + ilePci*3);
+		wyswietlDane(daneRam, 3, polaDanychRam);
 
 		wyswietlDane(dane, ilepol, polaDanych);
 		wyswietlDane(daneProc, 4, polaDanychProc);
+		wyswietlDanePci(danePci, polaDanychPci);
 
 		plik.close();
 	}
@@ -105,9 +157,9 @@ void QtOknoSzczegolowe::pobierzDane()
 		if (obraz->load(GAMINGOWA_OBRAZ))
 		{
 			scena->setSceneRect(obraz->rect());
-			scena->clear();
+			
 			scena->addPixmap(*obraz);
-			graphicsView->fitInView(obraz->rect());
+			
 		}
 		QFile plik(GAMINGOWA);
 		if (!plik.open(QFile::ReadOnly |
@@ -118,13 +170,16 @@ void QtOknoSzczegolowe::pobierzDane()
 		
 		QTextStream in(&plik);
 		
-		int ilepol = 11;
+		ilepol = 11;
+		
 		QStringList dane = czytajDane(in, 0, ilepol);
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
-
+		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
+		danePci = czytajDane(in, ilepol + 4 + ileRamu * 3, ilepol + 4 + ileRamu * 3 + ilePci * 3);
+		wyswietlDane(daneRam, 3, polaDanychRam);
 		wyswietlDane(dane, ilepol, polaDanych);
 		wyswietlDane(daneProc, 4, polaDanychProc);
-
+		wyswietlDanePci(danePci, polaDanychPci);
 		plik.close();
 
 	}
