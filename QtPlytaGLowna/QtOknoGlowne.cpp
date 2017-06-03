@@ -44,14 +44,13 @@ void QtOknoGlowne::dodajPlyte()
 		plyty.push_back(new PlytaMobilna());
 	else
 		plyty.push_back(new PlytaGamingowa());
-	
-	lista->append(plyta);
+	int i = plyty.size();
+	lista->append(QString("%1.").arg(i)+plyta);
 	modelPlyt->setStringList(*lista);
 	ui.listView->setModel(modelPlyt);
 	
 	ui.usunPlyteButton->setEnabled(true);
 	ui.szczegolyButton->setEnabled(true);
-	
 
 
 
