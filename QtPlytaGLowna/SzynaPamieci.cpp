@@ -40,19 +40,10 @@ ostream& operator<<(ostream &o, SzynaPamieci &s) {
 }
 istream& operator >> (istream &o, SzynaPamieci &p) {
 
-	cout << "Podaj producenta ramu :" << endl;
-	o.ignore();
+	
+	o.ignore(100, '\n');
 	getline(o, p.producent);
-	cout << "Wybierz taktowanie ramu(Wpisz jedna z podanych wartosci) :" << endl;
-	cout << "1. 1866" << endl;
-	cout << "2. 2133" << endl;
-	cout << "3. 2400" << endl;
 	o >> p.taktowanie;
-	cout << "Wybierz pojemnosc pamieci ram (Wpisz jedna z podanych wartosci):" << endl;
-	cout << "1. 2 (GB)" << endl;
-	cout << "2. 4 (GB)" << endl;
-	cout << "3. 8 (GB)" << endl;
-	cout << "3. 16 (GB)" << endl;
 	o >> p.pojemnosc;
 	return o;
 }

@@ -40,18 +40,17 @@ ostream& operator << (ostream &s, PlytaMobilna &p)
 
 istream& operator >> (istream &o, PlytaMobilna &p)
 {
-	cout << "Podaj nazwe producenta plyty :" << endl;
+	
 	o >> p.marka;
-	cout << "Podaj szerokosc w mm plyty :" << endl;
+	
 	o >> p.szerokosc;
-	cout << "Podaj dlugosc w mm plyty :" << endl;
+	
 	o >> p.dlugosc;
-	cout << "Podaj wage w gramch plyty :" << endl;
+	
 	o >> p.waga;
 	o >> p.procesor;
 	o >> p.ram;
 	for (int i = 0; i < p.dodatki.size(); i++) {
-		cout << "============================================================" << endl;
 		o >> p.dodatki[i];
 	}
 	return o;
@@ -80,12 +79,13 @@ void PlytaMobilna::wpiszDoPliku() {
 
 void PlytaMobilna::wczytajZPliku() {
 	fstream plik;
+	plik.exceptions(ifstream::failbit | ifstream::badbit);
 	plik.open(MOBILNA, ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;
 		plik.close();
-		system("cls");
+		
 		
 	}
 	

@@ -5,8 +5,11 @@
 #include <QString>
 #include <QTextStream>
 #include <QVBoxLayout>
+#include <QMessageBox>
 #include "ui_QtOknoSzczegolowe.h"
-
+#include "PlytaStacjonarna.h"
+#include "PlytaMobilna.h"
+#include "PlytaGamingowa.h"
 #include "PlytaGlowna.h"
 
 class QtOknoSzczegolowe: public QDialog, public Ui::Dialog
@@ -17,6 +20,9 @@ public:
 
 public slots:
 	void zmianaTabu();
+	void zezwolNaEdycje();
+	void zapiszZmiany();
+	void anulujZmiany();
 
 
 private:
@@ -26,6 +32,7 @@ private:
 	void pobierzDane();
 	void wyswietlDane(QList<QString> dane, int ile, QList<QLineEdit*> polaNaDane);
 	void wyswietlDanePci(QList<QString> dane, QList<QLineEdit*> polaNaDane);
+	void zapiszDane(QTextStream &out, int ile);
 	QList<QLineEdit*> polaDanych;
 	QList<QLineEdit*> polaDanychProc;
 	QList<QLineEdit*> polaDanychRam;

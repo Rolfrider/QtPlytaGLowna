@@ -43,33 +43,12 @@ ostream& operator<<(ostream &o, PCI &p) {
 }
 
 istream& operator>>(istream &o, PCI &p) {
-	if (p.mobilna == true)
-	{
-		if (p.rodzaj == "karta graficzna")
-		{
-			return o;
-		}
-		else {
-			cout << "Podaj nazwe rozszerzenia(np. Zyroskop, Wifi itp) :" << endl;
-			o.ignore();
-			getline(o, p.rodzaj);
-			cout << "Podaj producent rozszerzenia :" << endl;
-			getline(o, p.producent);
-			cout << "Podaj liczbe Mb pamieci  rozszerzenia" << endl;
-			o >> p.pamienc;
-			
-		}
-	}else {
-		cout << "Podaj rodzaj karty rozszerzen :" << endl;
-		o.ignore();
-		getline(o, p.rodzaj);
-		p.rodzaj = " Karta " + p.rodzaj;
-		cout << "Podaj producenta karty rozszerzen :" << endl;
-		getline(o, p.producent);
-		cout << "Podaj liczbe Mb pamieci  rozszerzenia" << endl;
-		o >> p.pamienc;
 	
-	}
+	
+	o.ignore(100, '\n');
+	getline(o, p.rodzaj);
+	getline(o, p.producent);
+	o >> p.pamienc;
 	return o;
 }
 //metody

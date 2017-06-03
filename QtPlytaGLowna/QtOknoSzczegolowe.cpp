@@ -34,10 +34,12 @@ void QtOknoSzczegolowe::wyswietlDane(QList<QString> dane, int ile, QList<QLineEd
 	for (int i = ile; i < polaNaDane.size(); i++)
 		polaNaDane[i]->setText("Brak");
 }
+
 void QtOknoSzczegolowe::zmianaTabu()
 {
 	QWidget *wybrany = tabWidgetPCI->currentWidget();
 	int index = tabWidgetPCI->currentIndex();
+
 
 	wybrany->setLayout(verticalLayout);
 	int k = 0;
@@ -47,7 +49,10 @@ void QtOknoSzczegolowe::zmianaTabu()
 	}
 
 
+
+
 }
+
 void QtOknoSzczegolowe::wyswietlDanePci(QList<QString> dane, QList<QLineEdit*> polaNaDane)
 {
 	
@@ -64,6 +69,7 @@ void QtOknoSzczegolowe::wyswietlDanePci(QList<QString> dane, QList<QLineEdit*> p
 		polaNaDane[i]->setText(dane[i]);
 	}
 }
+
 QStringList QtOknoSzczegolowe::czytajDane(QTextStream &in, int start, int koniec)
 {
 	QStringList dane;
@@ -80,9 +86,207 @@ QStringList QtOknoSzczegolowe::czytajDane(QTextStream &in, int start, int koniec
 	return dane;
 }
 
+void QtOknoSzczegolowe::zezwolNaEdycje()
+{
+	pushButtonAnuluj->setVisible(true);
+	pushButtonZapisz->setVisible(true);
+	pushButtonEdycja->setEnabled(false);
+
+
+	QList<QLineEdit*> tmp;
+	for (int i = 0; i < 3; i++) {
+		
+		switch (i)
+		{
+			case 0:
+			{
+				tmp = polaDanych;
+				break;
+			}
+			case 1:
+			{
+				tmp = polaDanychRam;
+				break;
+			}
+			case 2:
+			{
+				tmp = polaDanychProc;
+				break;
+			}
+	
+		}
+		for (int z = 0; z < tmp.size(); z++)
+			tmp[z]->setEnabled(true);
+	}
+}
+
+void QtOknoSzczegolowe::zapiszDane(QTextStream &out, int ile)
+{
+	
+	QList<QLineEdit*> tmp;
+	for (int i = 0; i < 3; i++) {
+
+		switch (i)
+		{
+		case 0:
+		{
+			tmp = polaDanych;
+			for (int z = 0; z < ile; z++)
+				out << tmp[z]->text() << endl;
+			break;
+		}
+		case 1:
+		{
+			tmp = polaDanychProc;
+			for (int z = 0; z < tmp.size(); z++)
+				out << tmp[z]->text() << endl;
+			break;
+			
+		}
+		case 2:
+		{
+			tmp = polaDanychRam;
+			for (int x = 0; x < (plyta->zwrocRam()*3); x++)
+			{
+				for (int z = 0; z < tmp.size(); z++)
+					out << tmp[z]->text() << endl;
+			}
+			break;
+		}
+
+		}
+		for (int z = 0; z < tmp.size(); z++)
+			tmp[z]->setEnabled(false);
+	}
+	for (int z = 0; z < danePci.size(); z++)
+		out << danePci[z] << endl;
+}
+void QtOknoSzczegolowe::zapiszZmiany()
+{
+	pushButtonEdycja->setEnabled(true);
+	int ilepol;
+	if (plyta->zwrocNazwe() == "Plyta Stacjonarna")
+	{
+		
+		QFile plik(STACJONARNA);
+		if (!plik.open(QFile::WriteOnly | QIODevice::Truncate|
+			QFile::Text))
+		{
+
+			return;
+		}
+		ilepol = 8;
+		QTextStream out(&plik);
+		zapiszDane(out, ilepol);
+
+		plik.close();
+		try {
+			plyta->wczytajZPliku();
+		}
+		catch (...) {
+			QMessageBox blad;
+			blad.setWindowTitle("Problem z edycja danych"); 
+			blad.setText("Wystapil blad");
+			blad.setInformativeText("Prawdopodobnie wprowadzono nie odpowiednia wartosc");
+			blad.exec(); 
+			plyta = new PlytaStacjonarna();
+		}
+	}
+	else if (plyta->zwrocNazwe() == "Plyta Mobilna")
+	{
+		
+		QFile plik(MOBILNA);
+		if (!plik.open(QFile::WriteOnly | QIODevice::Truncate|
+			QFile::Text))
+		{
+			return;
+		}
+		ilepol = 4;
+		QTextStream out(&plik);
+		zapiszDane(out, ilepol);
+		
+
+		plik.close();
+		try {
+			plyta->wczytajZPliku();
+		}
+		catch (...) {
+			QMessageBox blad;
+			blad.setWindowTitle("Problem z edycja danych");
+			blad.setText("Wystapil blad");
+			blad.setInformativeText("Prawdopodobnie wprowadzono nie odpowiednia wartosc");
+			blad.exec();
+			plyta = new PlytaMobilna();
+		}
+	}
+	else
+	{
+		
+		QFile plik(GAMINGOWA);
+		if (!plik.open(QFile::WriteOnly | QIODevice::Truncate|
+			QFile::Text))
+		{
+			return;
+		}
+		ilepol = 11;
+		QTextStream out(&plik);
+		zapiszDane(out, ilepol);
+
+		plik.close();
+
+		try {
+			plyta->wczytajZPliku();
+		}
+		catch (...) {
+			QMessageBox blad;
+			blad.setWindowTitle("Problem z edycja danych");
+			blad.setText("Wystapil blad");
+			blad.setInformativeText("Prawdopodobnie wprowadzono nie odpowiednia wartosc");
+			blad.exec();
+			plyta = new PlytaGamingowa();
+		}
+	}
+	pobierzDane();
+}
+
+	
+
+void QtOknoSzczegolowe::anulujZmiany()
+{
+	pushButtonEdycja->setEnabled(true);
+	pobierzDane();
+	QList<QLineEdit*> tmp;
+	for (int i = 0; i < 3; i++) {
+
+		switch (i)
+		{
+		case 0:
+		{
+			tmp = polaDanych;
+			break;
+		}
+		case 1:
+		{
+			tmp = polaDanychRam;
+			break;
+		}
+		case 2:
+		{
+			tmp = polaDanychProc;
+			break;
+		}
+
+		}
+		for (int z = 0; z < tmp.size(); z++)
+			tmp[z]->setEnabled(false);
+	}
+}
+
 
 void QtOknoSzczegolowe::pobierzDane()
 {
+	pushButtonAnuluj->setVisible(false);
+	pushButtonZapisz->setVisible(false);
 	plyta->wpiszDoPliku();
 	graphicsView->setScene(scena);
 	int ileRamu;
@@ -109,8 +313,9 @@ void QtOknoSzczegolowe::pobierzDane()
 		QTextStream in(&plik);
 		ilepol = 8;
 		QStringList dane = czytajDane(in, 0, ilepol);
+		
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
-		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
+		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 4 + ileRamu * 3);
 		danePci = czytajDane(in, ilepol + 4 + ileRamu * 3, ilepol + 4 + ileRamu * 3 + ilePci * 3);
 		
 		wyswietlDane(daneRam, 3, polaDanychRam);

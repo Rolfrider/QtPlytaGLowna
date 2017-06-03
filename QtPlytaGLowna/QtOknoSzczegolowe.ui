@@ -55,6 +55,9 @@
     <string>Szczegóły Płyty</string>
    </property>
    <widget class="QLineEdit" name="producentEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -64,10 +67,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="szerEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -77,10 +83,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dlEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -90,10 +99,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="wagaEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -103,10 +115,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dostSzynEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -116,10 +131,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="ZajSzynEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -129,10 +147,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="dostPCIEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -142,10 +163,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="zajPCIEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -155,10 +179,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="rgbEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -168,10 +195,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="cechEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -181,10 +211,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="materialEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -194,7 +227,7 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelProducent">
@@ -353,6 +386,9 @@
      <string>Szczegóły Procesora</string>
     </property>
     <widget class="QLineEdit" name="lineEditGniazdo">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -362,10 +398,13 @@
       </rect>
      </property>
      <property name="readOnly">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEditRdzenie">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -375,10 +414,13 @@
       </rect>
      </property>
      <property name="readOnly">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEditTak">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -388,10 +430,13 @@
       </rect>
      </property>
      <property name="readOnly">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEditCache">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -401,7 +446,7 @@
       </rect>
      </property>
      <property name="readOnly">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLabel" name="labelGniazdo">
@@ -456,6 +501,45 @@
       <string>Pamieć Cache(MB):</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButtonEdycja">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>260</y>
+      <width>111</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wprowadź zmiany</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonZapisz">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>330</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zapisz zmiany</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonAnuluj">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>360</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Anuluj </string>
+    </property>
    </widget>
   </widget>
   <widget class="QTabWidget" name="tabWidgetPCI">
@@ -514,8 +598,11 @@
       </item>
       <item>
        <widget class="QLineEdit" name="lineEditRodz">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -528,8 +615,11 @@
       </item>
       <item>
        <widget class="QLineEdit" name="lineEditProdu">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -542,8 +632,11 @@
       </item>
       <item>
        <widget class="QLineEdit" name="lineEditPami">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="readOnly">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -569,6 +662,9 @@
     <string>Szczegóły RAM</string>
    </property>
    <widget class="QLineEdit" name="lineEditProducent">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -578,10 +674,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditTakt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -591,10 +690,13 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditPam">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -604,7 +706,7 @@
      </rect>
     </property>
     <property name="readOnly">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="labelProd">
@@ -698,9 +800,59 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButtonEdycja</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>zezwolNaEdycje()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>605</x>
+     <y>294</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonZapisz</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>zapiszZmiany()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>605</x>
+     <y>352</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAnuluj</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>anulujZmiany()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>605</x>
+     <y>382</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>zmianaTabu()</slot>
-  <slot>slot2()</slot>
+  <slot>zezwolNaEdycje()</slot>
+  <slot>zapiszZmiany()</slot>
+  <slot>anulujZmiany()</slot>
  </slots>
 </ui>

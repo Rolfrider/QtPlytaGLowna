@@ -20,6 +20,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -63,6 +64,9 @@ public:
     QLabel *labelRdzenie;
     QLabel *labelTak;
     QLabel *labelCache;
+    QPushButton *pushButtonEdycja;
+    QPushButton *pushButtonZapisz;
+    QPushButton *pushButtonAnuluj;
     QTabWidget *tabWidgetPCI;
     QWidget *tab;
     QWidget *verticalLayoutWidget;
@@ -101,48 +105,59 @@ public:
         PlytaBox->setGeometry(QRect(380, 10, 301, 491));
         producentEdit = new QLineEdit(PlytaBox);
         producentEdit->setObjectName(QStringLiteral("producentEdit"));
+        producentEdit->setEnabled(false);
         producentEdit->setGeometry(QRect(10, 35, 113, 20));
-        producentEdit->setReadOnly(true);
+        producentEdit->setReadOnly(false);
         szerEdit = new QLineEdit(PlytaBox);
         szerEdit->setObjectName(QStringLiteral("szerEdit"));
+        szerEdit->setEnabled(false);
         szerEdit->setGeometry(QRect(10, 75, 113, 20));
-        szerEdit->setReadOnly(true);
+        szerEdit->setReadOnly(false);
         dlEdit = new QLineEdit(PlytaBox);
         dlEdit->setObjectName(QStringLiteral("dlEdit"));
+        dlEdit->setEnabled(false);
         dlEdit->setGeometry(QRect(10, 115, 113, 20));
-        dlEdit->setReadOnly(true);
+        dlEdit->setReadOnly(false);
         wagaEdit = new QLineEdit(PlytaBox);
         wagaEdit->setObjectName(QStringLiteral("wagaEdit"));
+        wagaEdit->setEnabled(false);
         wagaEdit->setGeometry(QRect(10, 155, 113, 20));
-        wagaEdit->setReadOnly(true);
+        wagaEdit->setReadOnly(false);
         dostSzynEdit = new QLineEdit(PlytaBox);
         dostSzynEdit->setObjectName(QStringLiteral("dostSzynEdit"));
+        dostSzynEdit->setEnabled(false);
         dostSzynEdit->setGeometry(QRect(10, 195, 113, 20));
-        dostSzynEdit->setReadOnly(true);
+        dostSzynEdit->setReadOnly(false);
         ZajSzynEdit = new QLineEdit(PlytaBox);
         ZajSzynEdit->setObjectName(QStringLiteral("ZajSzynEdit"));
+        ZajSzynEdit->setEnabled(false);
         ZajSzynEdit->setGeometry(QRect(10, 235, 113, 20));
-        ZajSzynEdit->setReadOnly(true);
+        ZajSzynEdit->setReadOnly(false);
         dostPCIEdit = new QLineEdit(PlytaBox);
         dostPCIEdit->setObjectName(QStringLiteral("dostPCIEdit"));
+        dostPCIEdit->setEnabled(false);
         dostPCIEdit->setGeometry(QRect(10, 275, 113, 20));
-        dostPCIEdit->setReadOnly(true);
+        dostPCIEdit->setReadOnly(false);
         zajPCIEdit = new QLineEdit(PlytaBox);
         zajPCIEdit->setObjectName(QStringLiteral("zajPCIEdit"));
+        zajPCIEdit->setEnabled(false);
         zajPCIEdit->setGeometry(QRect(10, 315, 113, 20));
-        zajPCIEdit->setReadOnly(true);
+        zajPCIEdit->setReadOnly(false);
         rgbEdit = new QLineEdit(PlytaBox);
         rgbEdit->setObjectName(QStringLiteral("rgbEdit"));
+        rgbEdit->setEnabled(false);
         rgbEdit->setGeometry(QRect(10, 355, 131, 20));
-        rgbEdit->setReadOnly(true);
+        rgbEdit->setReadOnly(false);
         cechEdit = new QLineEdit(PlytaBox);
         cechEdit->setObjectName(QStringLiteral("cechEdit"));
+        cechEdit->setEnabled(false);
         cechEdit->setGeometry(QRect(10, 395, 131, 20));
-        cechEdit->setReadOnly(true);
+        cechEdit->setReadOnly(false);
         materialEdit = new QLineEdit(PlytaBox);
         materialEdit->setObjectName(QStringLiteral("materialEdit"));
+        materialEdit->setEnabled(false);
         materialEdit->setGeometry(QRect(10, 435, 181, 20));
-        materialEdit->setReadOnly(true);
+        materialEdit->setReadOnly(false);
         labelProducent = new QLabel(PlytaBox);
         labelProducent->setObjectName(QStringLiteral("labelProducent"));
         labelProducent->setGeometry(QRect(10, 20, 61, 16));
@@ -181,20 +196,24 @@ public:
         groupBoxProc->setGeometry(QRect(150, 30, 141, 211));
         lineEditGniazdo = new QLineEdit(groupBoxProc);
         lineEditGniazdo->setObjectName(QStringLiteral("lineEditGniazdo"));
+        lineEditGniazdo->setEnabled(false);
         lineEditGniazdo->setGeometry(QRect(10, 35, 113, 20));
-        lineEditGniazdo->setReadOnly(true);
+        lineEditGniazdo->setReadOnly(false);
         lineEditRdzenie = new QLineEdit(groupBoxProc);
         lineEditRdzenie->setObjectName(QStringLiteral("lineEditRdzenie"));
+        lineEditRdzenie->setEnabled(false);
         lineEditRdzenie->setGeometry(QRect(10, 75, 113, 20));
-        lineEditRdzenie->setReadOnly(true);
+        lineEditRdzenie->setReadOnly(false);
         lineEditTak = new QLineEdit(groupBoxProc);
         lineEditTak->setObjectName(QStringLiteral("lineEditTak"));
+        lineEditTak->setEnabled(false);
         lineEditTak->setGeometry(QRect(10, 115, 113, 20));
-        lineEditTak->setReadOnly(true);
+        lineEditTak->setReadOnly(false);
         lineEditCache = new QLineEdit(groupBoxProc);
         lineEditCache->setObjectName(QStringLiteral("lineEditCache"));
+        lineEditCache->setEnabled(false);
         lineEditCache->setGeometry(QRect(10, 155, 113, 20));
-        lineEditCache->setReadOnly(true);
+        lineEditCache->setReadOnly(false);
         labelGniazdo = new QLabel(groupBoxProc);
         labelGniazdo->setObjectName(QStringLiteral("labelGniazdo"));
         labelGniazdo->setGeometry(QRect(10, 20, 111, 16));
@@ -207,6 +226,15 @@ public:
         labelCache = new QLabel(groupBoxProc);
         labelCache->setObjectName(QStringLiteral("labelCache"));
         labelCache->setGeometry(QRect(10, 140, 111, 16));
+        pushButtonEdycja = new QPushButton(PlytaBox);
+        pushButtonEdycja->setObjectName(QStringLiteral("pushButtonEdycja"));
+        pushButtonEdycja->setGeometry(QRect(170, 260, 111, 50));
+        pushButtonZapisz = new QPushButton(PlytaBox);
+        pushButtonZapisz->setObjectName(QStringLiteral("pushButtonZapisz"));
+        pushButtonZapisz->setGeometry(QRect(170, 330, 111, 25));
+        pushButtonAnuluj = new QPushButton(PlytaBox);
+        pushButtonAnuluj->setObjectName(QStringLiteral("pushButtonAnuluj"));
+        pushButtonAnuluj->setGeometry(QRect(170, 360, 111, 25));
         tabWidgetPCI = new QTabWidget(Dialog);
         tabWidgetPCI->setObjectName(QStringLiteral("tabWidgetPCI"));
         tabWidgetPCI->setGeometry(QRect(20, 380, 151, 181));
@@ -234,7 +262,8 @@ public:
 
         lineEditRodz = new QLineEdit(verticalLayoutWidget);
         lineEditRodz->setObjectName(QStringLiteral("lineEditRodz"));
-        lineEditRodz->setReadOnly(true);
+        lineEditRodz->setEnabled(false);
+        lineEditRodz->setReadOnly(false);
 
         verticalLayout->addWidget(lineEditRodz);
 
@@ -245,7 +274,8 @@ public:
 
         lineEditProdu = new QLineEdit(verticalLayoutWidget);
         lineEditProdu->setObjectName(QStringLiteral("lineEditProdu"));
-        lineEditProdu->setReadOnly(true);
+        lineEditProdu->setEnabled(false);
+        lineEditProdu->setReadOnly(false);
 
         verticalLayout->addWidget(lineEditProdu);
 
@@ -256,7 +286,8 @@ public:
 
         lineEditPami = new QLineEdit(verticalLayoutWidget);
         lineEditPami->setObjectName(QStringLiteral("lineEditPami"));
-        lineEditPami->setReadOnly(true);
+        lineEditPami->setEnabled(false);
+        lineEditPami->setReadOnly(false);
 
         verticalLayout->addWidget(lineEditPami);
 
@@ -269,16 +300,19 @@ public:
         groupBoxRAM->setGeometry(QRect(200, 390, 151, 171));
         lineEditProducent = new QLineEdit(groupBoxRAM);
         lineEditProducent->setObjectName(QStringLiteral("lineEditProducent"));
+        lineEditProducent->setEnabled(false);
         lineEditProducent->setGeometry(QRect(10, 40, 113, 20));
-        lineEditProducent->setReadOnly(true);
+        lineEditProducent->setReadOnly(false);
         lineEditTakt = new QLineEdit(groupBoxRAM);
         lineEditTakt->setObjectName(QStringLiteral("lineEditTakt"));
+        lineEditTakt->setEnabled(false);
         lineEditTakt->setGeometry(QRect(10, 80, 113, 20));
-        lineEditTakt->setReadOnly(true);
+        lineEditTakt->setReadOnly(false);
         lineEditPam = new QLineEdit(groupBoxRAM);
         lineEditPam->setObjectName(QStringLiteral("lineEditPam"));
+        lineEditPam->setEnabled(false);
         lineEditPam->setGeometry(QRect(10, 120, 113, 20));
-        lineEditPam->setReadOnly(true);
+        lineEditPam->setReadOnly(false);
         labelProd = new QLabel(groupBoxRAM);
         labelProd->setObjectName(QStringLiteral("labelProd"));
         labelProd->setGeometry(QRect(10, 20, 111, 16));
@@ -293,6 +327,9 @@ public:
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));
         QObject::connect(buttonBox, SIGNAL(rejected()), Dialog, SLOT(reject()));
         QObject::connect(tabWidgetPCI, SIGNAL(currentChanged(int)), Dialog, SLOT(zmianaTabu()));
+        QObject::connect(pushButtonEdycja, SIGNAL(clicked()), Dialog, SLOT(zezwolNaEdycje()));
+        QObject::connect(pushButtonZapisz, SIGNAL(clicked()), Dialog, SLOT(zapiszZmiany()));
+        QObject::connect(pushButtonAnuluj, SIGNAL(clicked()), Dialog, SLOT(anulujZmiany()));
 
         tabWidgetPCI->setCurrentIndex(0);
 
@@ -320,6 +357,9 @@ public:
         labelRdzenie->setText(QApplication::translate("Dialog", "Liczba rdzeni:", Q_NULLPTR));
         labelTak->setText(QApplication::translate("Dialog", "Taktowanie rdzeni(GHz):", Q_NULLPTR));
         labelCache->setText(QApplication::translate("Dialog", "Pamie\304\207 Cache(MB):", Q_NULLPTR));
+        pushButtonEdycja->setText(QApplication::translate("Dialog", "Wprowad\305\272 zmiany", Q_NULLPTR));
+        pushButtonZapisz->setText(QApplication::translate("Dialog", "Zapisz zmiany", Q_NULLPTR));
+        pushButtonAnuluj->setText(QApplication::translate("Dialog", "Anuluj ", Q_NULLPTR));
         labelRodz->setText(QApplication::translate("Dialog", "Rodzaj rozszerzenia:", Q_NULLPTR));
         labelProdu->setText(QApplication::translate("Dialog", "Producent:", Q_NULLPTR));
         labelPami->setText(QApplication::translate("Dialog", "Pami\304\231\304\207(GB):", Q_NULLPTR));

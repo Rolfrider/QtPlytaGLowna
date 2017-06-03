@@ -64,38 +64,25 @@ ostream& operator << (ostream &s, PlytaGamingowa &p) {
 }
 
 istream& operator >> (istream &o, PlytaGamingowa &p) {
-	cout << "Podaj nazwe producenta plyty :" << endl;
 	getline(o, p.marka);
-	cout << "Podaj szerokosc w mm plyty :" << endl;
 	o >> p.szerokosc;
-	cout << "Podaj dlugosc w mm plyty :" << endl;
 	o >> p.dlugosc;
-	cout << "Podaj wage w gramch plyty :" << endl;
 	o >> p.waga;
-	cout << "Podaj liczbe dostepnych szyn pamieci" << endl;
 	o >> p.liczbaSzyn;
-	cout << "Podaj liczbe zajetych szyn pamieci " << endl;
 	o >> p.szynyZajete;	
-	cout << "Podaj liczbe zlaczy PCI" << endl;
 	o >> p.wejsciaPCI;
-	cout << "Podaj liczbe zajetych zlacz PCI " << endl;
 	o >> p.PCIzajete;	
-	o.ignore();
-	cout << "Podaj kolor podœwietlenia RGB :" << endl;
+	o.ignore(100, '\n');
 	getline(o, p.podswietlenieRGB);
-	cout << "Podaj cechy szcegolne :" << endl;
 	getline(o, p.cechySzczegolne);
-	cout << "Podaj material z ktorego zostala wykonana plyta : " << endl;
 	getline(o, p.material);
 	o >> p.procesor;
 	
 	
 	for (int i = 0; i < p.RAM.size(); i++) {
-		p.dzialka();
 		o >> p.RAM[i];
 	}
 	for (int i = 0; i < p.karty.size(); i++) {
-		p.dzialka();
 		o >> p.karty[i];
 	}
 	return o;
@@ -116,8 +103,7 @@ void PlytaGamingowa::wpiszDoPliku() {
 
 		plik << *this;
 		plik.close();
-		system("cls");
-		cout << "Udalo sie zapisac dane w pliku " << endl;
+		
 	}
 	else
 	{
@@ -127,13 +113,13 @@ void PlytaGamingowa::wpiszDoPliku() {
 
 void PlytaGamingowa::wczytajZPliku() {
 	fstream plik;
+	plik.exceptions(ifstream::failbit | ifstream::badbit);
 	plik.open("PlytaGamingowa.txt", ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;
 		plik.close();
-		system("cls");
-		cout << "Udalo sie wczytac dane z pliku" << endl;
+		
 	}
 	else
 	{

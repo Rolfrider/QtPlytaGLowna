@@ -45,7 +45,7 @@ public:
 	/// Funkcja odziedziczona wczytujaca  dane o obikecie z pliku
 	void wczytajZPliku();
 
-	int zwrocRam() { return liczbaSzyn; }
+	int zwrocRam() { return szynyZajete; }
 
 
 	int zwrocPci(){return PCIzajete;}

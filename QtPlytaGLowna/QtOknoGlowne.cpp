@@ -13,7 +13,6 @@ QtOknoGlowne::QtOknoGlowne(QWidget *parent)
 	modelPlyt = new QStringListModel();
 	lista = new QStringList();
 
-
 	QStringList list;
 	list << "Plyta Stacjonarna" << "Plyta Mobilna" << "Plyta Gamingowa";
 

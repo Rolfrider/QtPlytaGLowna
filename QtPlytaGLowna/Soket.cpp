@@ -44,13 +44,13 @@ ostream& operator<<(ostream &o, Soket &s) {
 }
 istream& operator >> (istream &o,Soket &p) {
 	
-	cout << "Podaj liczbe rdzeni procesora" << endl;
-	o >> p.liczbaRdzeni;
-	cout << "Podaj taktowanie w GHz procesora" << endl;
-	o >> p.taktowanie;
-	cout << "Podaj nr. id gniazda procesora" << endl;
 	o >> p.rodzaj;
-	cout << "Podaj liczbe MB pamieci Cache procesora" << endl;
+
+	o >> p.liczbaRdzeni;
+	
+	o >> p.taktowanie;
+	
+	
 	o >> p.pamiecCache;
 	
 	return o;

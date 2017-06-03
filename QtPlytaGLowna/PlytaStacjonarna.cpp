@@ -227,30 +227,29 @@ ostream& operator << (ostream &s, PlytaStacjonarna &p) {
 }
 
 istream& operator >> (istream &o, PlytaStacjonarna &p) {
-	cout << "Podaj nazwe producenta plyty :" << endl;
+	
 	getline(o, p.marka);
-	cout << "Podaj szerokosc w mm plyty :" << endl;
+	
 	o >> p.szerokosc;
-	cout << "Podaj dlugosc w mm plyty :" << endl;
+	
 	o >> p.dlugosc;
-	cout << "Podaj wage w gramch plyty :" << endl;
+	
 	o >> p.waga;
-	cout << "Podaj liczbe dostepnych szyn pamieci" << endl;
+	
 	o >> p.liczbaSzyn;
-	cout << "Podaj liczbe zajetych szyn pamieci " << endl;
+	
 	o >> p.szynyZajete;
-	cout << "Podaj liczbe zlaczy PCI" << endl;
+	
 	o >> p.wejsciaPCI;
-	cout << "Podaj liczbe zajetych zlacz PCI " << endl;
 	o >> p.PCIzajete;
 	o >> p.procesor;
 	
 	for (int i = 0; i < p.RAM.size(); i++) {
-		p.dzialka();
+		
 		o >> p.RAM[i];
 	}
 	for (int i = 0; i < p.karty.size(); i++) {
-		p.dzialka();
+		
 		o >> p.karty[i];
 	}
 	return o;
@@ -267,14 +266,13 @@ void PlytaStacjonarna::stan() {
 
 void PlytaStacjonarna::wpiszDoPliku() {
 	fstream plik;
+	
 	plik.open("PlytaStacjonarna.txt", ios::out | ios::trunc);
 	if (plik.good() == true)
 	{
 		
 		plik << *this;
 		plik.close();
-		system("cls");
-		cout << "Udalo sie zapisac dane w pliku " << endl;
 	}
 	else
 	{
@@ -284,13 +282,13 @@ void PlytaStacjonarna::wpiszDoPliku() {
 
 void PlytaStacjonarna::wczytajZPliku() {
 	fstream plik;
+	plik.exceptions(ifstream::failbit | ifstream::badbit);
 	plik.open("PlytaStacjonarna.txt", ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;
 		plik.close();
-		system("cls");
-		cout << "Udalo sie wczytac dane z pliku" << endl;
+		
 	}
 	else
 	{
