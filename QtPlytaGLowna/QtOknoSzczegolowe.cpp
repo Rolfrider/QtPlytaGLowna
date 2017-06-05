@@ -37,11 +37,11 @@ void QtOknoSzczegolowe::wyswietlDane(QList<QString> dane, int ile, QList<QLineEd
 
 void QtOknoSzczegolowe::zmianaTabu()
 {
-	QWidget *wybrany = tabWidgetPCI->currentWidget();
-	int index = tabWidgetPCI->currentIndex();
+	QWidget *wybrany = tabWidgetPCI->currentWidget();// Pobranie wybranej zak³adki
+	int index = tabWidgetPCI->currentIndex(); // Pobranie jej numeru
 
 
-	wybrany->setLayout(verticalLayout);
+	wybrany->setLayout(verticalLayout);// ustawienie na niej layoutu
 	int k = 0;
 	for (int i = index*3; i < index*3+3; i++) {
 		polaDanychPci[k]->setText(danePci[i]);
@@ -59,9 +59,9 @@ void QtOknoSzczegolowe::wyswietlDanePci(QList<QString> dane, QList<QLineEdit*> p
 	for (int i = 0; i < (dane.size()) / 3 - 1; i++)
 	{
 		
-		tabs.append(new QWidget);
-		tabs[i]->setObjectName(QStringLiteral("tab_%1").arg(i+2));
-		tabWidgetPCI->addTab(tabs[i], QString(QString("PCI %1").arg(i + 2)));
+		tabs.append(new QWidget); // dodanie nowego tabu
+		tabs[i]->setObjectName(QStringLiteral("tab_%1").arg(i+2)); // Nadanie imienia zak³adki
+		tabWidgetPCI->addTab(tabs[i], QString(QString("PCI %1").arg(i + 2))); // Nadanie nzay zak³adki
 
 	}
 
@@ -146,7 +146,7 @@ void QtOknoSzczegolowe::zapiszDane(QTextStream &out, int ile)
 		case 2:
 		{
 			tmp = polaDanychRam;
-			for (int x = 0; x < (plyta->zwrocRam()*3); x++)
+			for (int x = 0; x < plyta->zwrocRam(); x++)
 			{
 				for (int z = 0; z < tmp.size(); z++)
 					out << tmp[z]->text() << endl;
@@ -344,13 +344,13 @@ void QtOknoSzczegolowe::pobierzDane()
 		QTextStream in(&plik);
 	
 		ilepol = 4;
-		
+		labelPami->setText("Pamiec(MB):");
 		QStringList dane = czytajDane(in, 0, ilepol);
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
 		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
-		 danePci = czytajDane(in, ilepol + 4 + ileRamu*3, ilepol + 4 + ileRamu * 3 + ilePci*3);
-		wyswietlDane(daneRam, 3, polaDanychRam);
+		danePci = czytajDane(in, ilepol + 4 + ileRamu*3, ilepol + 4 + ileRamu * 3 + ilePci*3);
 
+		wyswietlDane(daneRam, 3, polaDanychRam);
 		wyswietlDane(dane, ilepol, polaDanych);
 		wyswietlDane(daneProc, 4, polaDanychProc);
 		wyswietlDanePci(danePci, polaDanychPci);
@@ -379,8 +379,9 @@ void QtOknoSzczegolowe::pobierzDane()
 		
 		QStringList dane = czytajDane(in, 0, ilepol);
 		QStringList daneProc = czytajDane(in, ilepol, ilepol + 4);
-		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 7);
+		QStringList daneRam = czytajDane(in, ilepol + 4, ilepol + 4 + ileRamu * 3);
 		danePci = czytajDane(in, ilepol + 4 + ileRamu * 3, ilepol + 4 + ileRamu * 3 + ilePci * 3);
+
 		wyswietlDane(daneRam, 3, polaDanychRam);
 		wyswietlDane(dane, ilepol, polaDanych);
 		wyswietlDane(daneProc, 4, polaDanychProc);

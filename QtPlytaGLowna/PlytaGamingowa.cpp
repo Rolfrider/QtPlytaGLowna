@@ -1,6 +1,6 @@
 //#include "stdafx.h"
 #include "PlytaGamingowa.h"
-
+#define GAMINGOWA "PlytaGamingowa.txt"
 
 PlytaGamingowa::PlytaGamingowa()
 {
@@ -97,7 +97,7 @@ void PlytaGamingowa::stan() {
 }
 void PlytaGamingowa::wpiszDoPliku() {
 	fstream plik;
-	plik.open("PlytaGamingowa.txt", ios::out | ios::trunc);
+	plik.open(GAMINGOWA, ios::out | ios::trunc);
 	if (plik.good() == true)
 	{
 
@@ -114,7 +114,7 @@ void PlytaGamingowa::wpiszDoPliku() {
 void PlytaGamingowa::wczytajZPliku() {
 	fstream plik;
 	plik.exceptions(ifstream::failbit | ifstream::badbit);
-	plik.open("PlytaGamingowa.txt", ios::in);
+	plik.open(GAMINGOWA, ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;

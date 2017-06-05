@@ -1,30 +1,33 @@
- MidBajt 
+ MSC 
 305
 244
 222.1
 6
-5
-1
-1
+4
+4
+3
 2011
 4
 3.5
 6
-RASUSs
-2400
+RASUS
+1866
 16
-RASUSs
-2400
+RASUS
+2133
+4
+RASUS
+1866
 16
-RASUSs
+RASUS
 2400
-16
-RASUSs
-2400
-16
-RASUSs
-2400
-16
-RASUSs
-2400
-16
+4
+ Karta graficzna 
+Masus
+4
+ Karta sieciowa 
+Minibajt
+1
+ Karta dzwiekowa 
+Minibajt
+6

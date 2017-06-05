@@ -1,6 +1,6 @@
 //#include "stdafx.h"
 #include "PlytaStacjonarna.h"
-
+#define STACJONARNA "PlytaStacjonarna.txt"
 #ifdef _DEBUG
 #define DEBUG(x)
 #else
@@ -267,7 +267,7 @@ void PlytaStacjonarna::stan() {
 void PlytaStacjonarna::wpiszDoPliku() {
 	fstream plik;
 	
-	plik.open("PlytaStacjonarna.txt", ios::out | ios::trunc);
+	plik.open(STACJONARNA, ios::out | ios::trunc);
 	if (plik.good() == true)
 	{
 		
@@ -283,7 +283,7 @@ void PlytaStacjonarna::wpiszDoPliku() {
 void PlytaStacjonarna::wczytajZPliku() {
 	fstream plik;
 	plik.exceptions(ifstream::failbit | ifstream::badbit);
-	plik.open("PlytaStacjonarna.txt", ios::in);
+	plik.open(STACJONARNA, ios::in);
 	if (plik.good() == true)
 	{
 		plik >> *this;
